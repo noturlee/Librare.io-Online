@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<br />
+<br />
+<br />
+<h1>About Librare.io</h1>
+<br />
+
+<div class="about-container">
+    <div class="about-content">
+        <p>
+            <strong>Librare.io</strong> was founded by Leighché Jaikarran, driven by a profound love for the animated series <em>Steven Universe</em>. The creation of this platform is a reflection of Leighché’s admiration for the show and its deep, emotional storytelling.
+        </p>
+        <p>
+            <em>Steven Universe</em>, a show created by Rebecca Sugar, follows the journey of Steven Universe, a young boy who is part of a magical team of Crystal Gems. The story is deeply touching and centers around Steven’s quest to understand his place in the world and his connection to his mother, Rose Quartz. Rose Quartz, a central character, is a figure of great strength and compassion, but her story is marked by profound sorrow. She gave up her physical form to bring Steven into the world, leaving behind a legacy that is both powerful and bittersweet.
+        </p>
+        <p>
+            The Gems, who are powerful beings with their own unique abilities, were once led by Rose Quartz. Her absence is a source of ongoing emotional depth for Steven, as he grapples with the legacy she left behind and the impact it has on his life. Despite not having Rose by his side, her spirit and influence are an integral part of Steven, shaping his journey and his understanding of the world.
+        </p>
+        <p>
+            At <strong>Librare.io</strong>, we aim to create a space where users can explore and discover books that inspire them, much like how Steven Universe inspires Leighché. Just as Steven draws strength and inspiration from his mother’s legacy, we hope this platform will provide readers with books that resonate deeply and inspire personal growth.
+        </p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        font-family: 'Century Gothic', sans-serif;
+        color: white;
+        font-size:60px;
+        font-weight: 600;
+        text-align: center; /* Center align the title */
+    }
+
+    body {
+        font-family: 'Century Gothic', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url("https://wallpapers.com/images/hd/steven-universe-background-ngbfykufcx4idrcc.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .about-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align to the top */
+        padding-top: 30px; /* Add padding to move the container down a bit */
+    }
+
+    .about-content {
+        font-family: 'Century Gothic', sans-serif;
+        line-height: 1.6;
+        background-color: rgba(3, 31, 64, 0.8); /* Slightly transparent background */
+        border-radius: 10px;
+        padding: 20px;
+        width: 80%; /* Increase width to 80% of the container */
+        transition: background-color 0.3s ease;
+    }
+
+        .about-content:hover {
+            background-color: rgba(3, 31, 64, 0.9); /* Darker background on hover */
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .about-content strong {
+            color: #c86abd;
+        }
+
+        .about-content em {
+            font-style: italic;
+        }
+</style>

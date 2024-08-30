@@ -1,0 +1,192 @@
+﻿@model Librareio.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Century+Gothic:wght@400&display=swap" rel="stylesheet">
+
+    <h1>Add to Shelf</h1>
+    <br />
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+               
+                <div class="form-group text-center">
+                    <div class="image-container">
+                        <img id="imagePreview" src="" class="img-fluid" alt="Image Preview" />
+                    </div>
+                </div>
+
+     
+                <div class="form-group">
+                    <label asp-for="DisplayImage" class="control-label">Upload Cover</label>
+                    <input asp-for="DisplayImage" type="file" class="form-control" onchange="previewImage(event)" />
+                    <span asp-validation-for="DisplayImage" class="text-danger"></span>
+                </div>
+
+            
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="BookName" class="control-label">Book Name</label>
+                        <input asp-for="BookName" class="form-control" />
+                        <span asp-validation-for="BookName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Author" class="control-label">Author</label>
+                        <input asp-for="Author" class="form-control" />
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+                </div>
+
+               
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+            
+                <div class="form-group">
+                    <label asp-for="PdfFile" class="control-label">PDF File</label>
+                    <input asp-for="PdfFile" type="file" class="form-control" />
+                    <span asp-validation-for="PdfFile" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary create-btn" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}
+
+<style>
+    body {
+        font-family: 'League Spartan', sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        height: 100vh; 
+        background-image: url("https://wallpapers.com/images/hd/purple-and-pink-steven-universe-ipad-6ow60g8klchaw9xq.jpg");
+        background-size: 100%; 
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Center text */
+    .text-center {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        font-weight: 600;
+        color: #66388f;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        max-width: 100%;
+        margin: 0 auto; 
+    }
+
+   
+    .img-fluid {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .mt-3 {
+        margin-top: 1rem;
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; 
+    }
+
+    .form-group.col-md-6 {
+        flex: 1;
+    }
+
+    .create-btn {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        background-color: #7284cd; 
+        color: white;
+        padding: 10px 100px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: color 0.4s ease, background-color 0.4s ease;
+    }
+
+        .create-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: width 0.4s ease, height 0.4s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .create-btn:hover::before {
+            width: 0;
+            height: 0;
+        }
+
+        .create-btn:hover {
+            color: white; 
+            background-color: #6272b1; 
+        }
+
+    .form-group label.control-label {
+        color: white; 
+        font-weight: 600;
+        font-family: 'Century Gothic', sans-serif; 
+    }
+</style>

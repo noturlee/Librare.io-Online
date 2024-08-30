@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 id="title">Librare.io</h1>
+    <button id="playButton">
+        <img src="~/images/heart.png" alt="Play Song" height="25px" />
+    </button>
+</div>
+
+<style>
+    body {
+        font-family: 'League Spartan', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url("https://preview.redd.it/eqkhx9zu2kq11.png?auto=webp&s=8522537bff0beccf1dc98135a0be00d0d87aa072");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    h1 {
+        color: white;
+        font-family: 'Century Gothic';
+        font-weight: 600;
+        padding-top: 280px;
+        font-size: 80px;
+        transition: transform 0.3s ease; /* Smooth transition for the hover effect */
+    }
+
+        h1:hover {
+            transform: translateY(-10px); /* Moves the text up when hovered */
+        }
+
+    #playButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #073b70;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 130px;
+        transition: background-color 0.3s ease;
+    }
+
+        #playButton:hover {
+            background-color: #02021d; /* Hover effect for the button */
+        }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const title = document.getElementById("title");
+        const playButton = document.getElementById("playButton");
+        const audio = new Audio("/music/steven.mp3"); // Ensure path is correct
+
+        playButton.addEventListener("click", function () {
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        });
+
+        title.addEventListener("click", function () {
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        });
+    });
+</script>
